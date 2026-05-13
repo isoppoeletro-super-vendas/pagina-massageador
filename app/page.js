@@ -30,7 +30,17 @@ export default function Home() {
         <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
           Ideal para trânsito, viagens longas e quem passa horas dirigindo todos os dias.
         </p>
+<div className="mt-5">
 
+  <p className="text-4xl md:text-5xl font-black text-red-600">
+    A partir de R$ 59,90
+  </p>
+
+  <p className="text-sm text-gray-500 mt-1">
+    ou parcelamento disponível no Mercado Livre
+  </p>
+
+</div>
                  <div className="flex items-center justify-center gap-2 mt-5 text-sm text-gray-500">
           ⭐⭐⭐⭐⭐
           <span>Mais de 10.000 motoristas satisfeitos</span>
