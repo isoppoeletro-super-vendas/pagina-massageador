@@ -8,17 +8,25 @@ export default function Home() {
   const link =
     "https://www.mercadolivre.com.br/encosto-almofada-massageador-para-carro-assento-de-bolinhas/up/MLBU1428683038";
 
-  const price = "59,90";
+  const price = "64,90";
 
   // 🔥 TRACKING BASE (Meta / Google Ads)
-  const handleBuyClick = () => {
-    if (typeof window !== "undefined") {
-      // FUTURO PIXEL META / GOOGLE ADS
-      console.log("click_buy");
+const handleBuyClick = () => {
+  if (typeof window !== "undefined") {
 
-      window.open(link, "_blank");
-    }
-  };
+    // 🔥 META PIXEL - evento de intenção de compra
+    window.fbq?.("track", "AddToCart", {
+  value: 64.9,
+  currency: "BRL",
+  content_name: "Encosto Massageador",
+  content_category: "Automotivo"
+});
+
+    console.log("click_buy");
+
+    window.open(link, "_blank");
+  }
+};
 
   return (
     <main className="min-h-screen bg-gray-100 text-gray-900 pb-24">
