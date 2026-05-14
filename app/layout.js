@@ -3,7 +3,7 @@ import MetaPixel from "./components/MetaPixel";
 
 export const metadata = {
   title: "Encosto Massageador",
-  description: "Landing page",
+  description: "Landing page de vendas",
 };
 
 export default function RootLayout({ children }) {
