@@ -26,7 +26,7 @@ export default function Home() {
           <span style={styles.badge}>MAIS VENDIDO</span>
 
           <img
-            src="https://http2.mlstatic.com/D_NQ_NP_2X_814435-MLU72645738838_112023-F.webp"
+            src="/imagens/produto.jpg"
             alt="Encosto Massageador"
             style={styles.image}
           />
@@ -45,7 +45,7 @@ export default function Home() {
             <h2 style={styles.price}>R$ 79,90</h2>
 
             <p style={styles.installments}>
-              ou 12x no Mercado Livre
+              Compra segura pelo Mercado Livre
             </p>
           </div>
 
@@ -113,6 +113,7 @@ const styles = {
     width: "100%",
     borderRadius: 14,
     marginBottom: 20,
+    objectFit: "cover",
   },
 
   title: {
@@ -120,6 +121,7 @@ const styles = {
     marginBottom: 10,
     color: "#222",
     lineHeight: 1.2,
+    fontWeight: "bold",
   },
 
   subtitle: {
