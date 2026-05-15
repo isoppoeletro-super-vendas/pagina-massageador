@@ -1,8 +1,24 @@
+# app/page.js
+
+```javascript
 "use client";
+
+import { useState } from "react";
 
 const LINK_AFILIADO = "https://meli.la/1Rn4azU";
 
 export default function Home() {
+  const [imagemSelecionada, setImagemSelecionada] = useState("/imagens/1.jpg");
+
+  const imagens = [
+    "/imagens/1.jpg",
+    "/imagens/2.jpg",
+    "/imagens/3.jpg",
+    "/imagens/4.jpg",
+    "/imagens/5.jpg",
+    "/imagens/6.jpg",
+  ];
+
   const comprar = () => {
     if (window.fbq) {
       fbq("track", "AddToCart");
@@ -23,46 +39,34 @@ export default function Home() {
     <div style={styles.page}>
       <div style={styles.container}>
         <div style={styles.card}>
-          <span style={styles.badge}>MAIS VENDIDO</span>
+          <div style={styles.topBar}>
+            <span style={styles.badge}>MAIS VENDIDO</span>
+            <span style={styles.shipping}>🚚 Envio rápido</span>
+          </div>
 
-          {/* GALERIA DE IMAGENS */}
-          <div style={styles.gallery}>
+          <div style={styles.galleryContainer}>
             <img
-              src="/imagens/1.jpg"
+              src={imagemSelecionada}
               alt="Encosto Massageador"
               style={styles.mainImage}
             />
 
             <div style={styles.thumbnailGrid}>
-              <img
-                src="/imagens/2.jpg"
-                alt="Produto 2"
-                style={styles.thumb}
-              />
-
-              <img
-                src="/imagens/3.jpg"
-                alt="Produto 3"
-                style={styles.thumb}
-              />
-
-              <img
-                src="/imagens/4.jpg"
-                alt="Produto 4"
-                style={styles.thumb}
-              />
-
-              <img
-                src="/imagens/5.jpg"
-                alt="Produto 5"
-                style={styles.thumb}
-              />
-
-              <img
-                src="/imagens/6.jpg"
-                alt="Produto 6"
-                style={styles.thumb}
-              />
+              {imagens.map((img, index) => (
+                <img
+                  key={index}
+                  src={img}
+                  alt={`Produto ${index + 1}`}
+                  style={{
+                    ...styles.thumb,
+                    border:
+                      imagemSelecionada === img
+                        ? "3px solid #3483fa"
+                        : "2px solid transparent",
+                  }}
+                  onClick={() => setImagemSelecionada(img)}
+                />
+              ))}
             </div>
           </div>
 
@@ -71,7 +75,7 @@ export default function Home() {
           </h1>
 
           <p style={styles.subtitle}>
-            Mais conforto para dirigir e alívio para costas e lombar
+            Mais conforto para dirigir e alívio para costas e lombar no dia a dia.
           </p>
 
           <div style={styles.priceBox}>
@@ -80,7 +84,7 @@ export default function Home() {
             <h2 style={styles.price}>R$ 64,90</h2>
 
             <p style={styles.installments}>
-              Compra segura pelo Mercado Livre
+              Compra segura via Mercado Livre
             </p>
           </div>
 
@@ -89,6 +93,7 @@ export default function Home() {
             <p>✔ Mais conforto no trânsito</p>
             <p>✔ Fácil instalação</p>
             <p>✔ Ideal para viagens longas</p>
+            <p>✔ Ajuste confortável no banco</p>
           </div>
 
           <button style={styles.buttonPrimary} onClick={comprar}>
@@ -111,26 +116,31 @@ export default function Home() {
 const styles = {
   page: {
     minHeight: "100vh",
-    background:
-      "linear-gradient(180deg, #f5f7fa 0%, #e4e8ee 100%)",
+    background: "linear-gradient(180deg, #f5f7fa 0%, #e4e8ee 100%)",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    padding: 20,
+    padding: 16,
     fontFamily: "Arial, sans-serif",
   },
 
   container: {
     width: "100%",
-    maxWidth: 430,
+    maxWidth: 460,
   },
 
   card: {
     backgroundColor: "#ffffff",
-    borderRadius: 18,
-    padding: 24,
+    borderRadius: 20,
+    padding: 22,
     boxShadow: "0 10px 35px rgba(0,0,0,0.12)",
-    textAlign: "center",
+  },
+
+  topBar: {
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
+    marginBottom: 16,
   },
 
   badge: {
@@ -140,53 +150,63 @@ const styles = {
     borderRadius: 20,
     fontSize: 12,
     fontWeight: "bold",
-    display: "inline-block",
-    marginBottom: 15,
   },
 
-  gallery: {
+  shipping: {
+    fontSize: 12,
+    color: "#555",
+    fontWeight: "bold",
+  },
+
+  galleryContainer: {
     marginBottom: 20,
   },
 
   mainImage: {
     width: "100%",
-    borderRadius: 14,
-    marginBottom: 10,
+    borderRadius: 16,
+    marginBottom: 12,
     objectFit: "cover",
+    cursor: "zoom-in",
+    transition: "0.3s",
   },
 
   thumbnailGrid: {
     display: "grid",
-    gridTemplateColumns: "1fr 1fr",
+    gridTemplateColumns: "repeat(3, 1fr)",
     gap: 10,
   },
 
   thumb: {
     width: "100%",
     borderRadius: 10,
-    objectFit: "cover",
+    cursor: "pointer",
+    transition: "0.2s",
   },
 
   title: {
     fontSize: 28,
-    marginBottom: 10,
     color: "#222",
     lineHeight: 1.2,
     fontWeight: "bold",
+    marginBottom: 10,
+    textAlign: "center",
   },
 
   subtitle: {
     fontSize: 16,
     color: "#666",
-    marginBottom: 20,
     lineHeight: 1.5,
+    marginBottom: 20,
+    textAlign: "center",
   },
 
   priceBox: {
     backgroundColor: "#f7f7f7",
-    borderRadius: 12,
-    padding: 15,
+    borderRadius: 14,
+    padding: 18,
     marginBottom: 20,
+    textAlign: "center",
   },
 
   oldPrice: {
@@ -196,9 +216,9 @@ const styles = {
   },
 
   price: {
-    fontSize: 36,
+    fontSize: 40,
     color: "#00a650",
-    margin: "8px 0",
+    margin: "10px 0",
     fontWeight: "bold",
   },
 
@@ -208,13 +228,13 @@ const styles = {
   },
 
   benefits: {
-    textAlign: "left",
     backgroundColor: "#fafafa",
     padding: 16,
-    borderRadius: 12,
-    marginBottom: 22,
-    lineHeight: 1.8,
+    borderRadius: 14,
+    marginBottom: 24,
+    lineHeight: 1.9,
     color: "#333",
+    fontSize: 15,
   },
 
   buttonPrimary: {
@@ -225,7 +245,7 @@ const styles = {
     padding: 18,
     fontSize: 18,
     fontWeight: "bold",
-    borderRadius: 12,
+    borderRadius: 14,
     cursor: "pointer",
     marginBottom: 12,
   },
@@ -237,7 +257,7 @@ const styles = {
     border: "none",
     padding: 16,
     fontSize: 16,
-    borderRadius: 12,
+    borderRadius: 14,
     cursor: "pointer",
   },
 
@@ -245,5 +265,7 @@ const styles = {
     marginTop: 18,
     fontSize: 13,
     color: "#666",
+    textAlign: "center",
   },
 };
+```
