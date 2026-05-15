@@ -282,23 +282,4 @@ const styles = {
     lineHeight: 1.7,
   },
 };
-```
 
-# Estrutura correta das imagens
-
-```plaintext
-/public/imagens/1.jpg
-/public/imagens/2.jpg
-/public/imagens/3.jpg
-/public/imagens/4.jpg
-/public/imagens/5.jpg
-/public/imagens/6.jpg
-```
-
-# Deploy
-
-```bash
-git add .
-git commit -m "organize landing page with image zoom"
-git push
-```
