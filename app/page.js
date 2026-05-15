@@ -39,15 +39,15 @@ export default function Home() {
             Mais conforto para dirigir e alívio para costas e lombar
           </p>
 
-          <div style={styles.priceBox}>
-            <span style={styles.oldPrice}>De R$ 129,90</span>
+         <div style={styles.priceBox}>
+  <span style={styles.oldPrice}>De R$ 89,90</span>
 
-            <h2 style={styles.price}>R$ 79,90</h2>
+  <h2 style={styles.price}>R$ 64,90</h2>
 
-            <p style={styles.installments}>
-              Compra segura pelo Mercado Livre
-            </p>
-          </div>
+  <p style={styles.installments}>
+    Compra segura pelo Mercado Livre
+  </p>
+</div>
 
           <div style={styles.benefits}>
             <p>✔ Alívio imediato da lombar</p>
