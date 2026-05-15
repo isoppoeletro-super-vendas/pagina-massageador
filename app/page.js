@@ -56,7 +56,7 @@ export default function Home() {
                 <img
                   key={index}
                   src={img}
-                  alt={`Produto ${index + 1}`}
+                  alt="Produto"
                   style={{
                     ...styles.thumb,
                     border:
