@@ -1,6 +1,3 @@
-# app/page.js
-
-```javascript
 "use client";
 
 import { useState } from "react";
@@ -282,4 +279,3 @@ const styles = {
     lineHeight: 1.7,
   },
 };
-
