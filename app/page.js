@@ -4,41 +4,70 @@ const LINK_AFILIADO = "https://meli.la/1Rn4azU";
 
 export default function Home() {
   const comprar = () => {
-    if (window.fbq) fbq("track", "AddToCart");
+    if (window.fbq) {
+      fbq("track", "AddToCart");
+    }
+
     window.location.href = LINK_AFILIADO;
   };
 
   const checkout = () => {
-    if (window.fbq) fbq("track", "InitiateCheckout");
+    if (window.fbq) {
+      fbq("track", "InitiateCheckout");
+    }
+
     window.location.href = LINK_AFILIADO;
   };
 
   return (
     <div style={styles.page}>
-      <div style={styles.card}>
-        <h1 style={styles.title}>Encosto Massageador</h1>
+      <div style={styles.container}>
+        <div style={styles.card}>
+          <span style={styles.badge}>MAIS VENDIDO</span>
 
-        <p style={styles.subtitle}>
-          Mais conforto e alívio para sua coluna no dia a dia
-        </p>
+          <img
+            src="https://http2.mlstatic.com/D_NQ_NP_2X_814435-MLU72645738838_112023-F.webp"
+            alt="Encosto Massageador"
+            style={styles.image}
+          />
 
-        <div style={styles.box}>
-          <p>✔ Reduz dores lombares</p>
-          <p>✔ Mais conforto ao dirigir</p>
-          <p>✔ Fácil instalação</p>
+          <h1 style={styles.title}>
+            Encosto Massageador para Carro
+          </h1>
+
+          <p style={styles.subtitle}>
+            Mais conforto para dirigir e alívio para costas e lombar
+          </p>
+
+          <div style={styles.priceBox}>
+            <span style={styles.oldPrice}>De R$ 129,90</span>
+
+            <h2 style={styles.price}>R$ 79,90</h2>
+
+            <p style={styles.installments}>
+              ou 12x no Mercado Livre
+            </p>
+          </div>
+
+          <div style={styles.benefits}>
+            <p>✔ Alívio imediato da lombar</p>
+            <p>✔ Mais conforto no trânsito</p>
+            <p>✔ Fácil instalação</p>
+            <p>✔ Ideal para viagens longas</p>
+          </div>
+
+          <button style={styles.buttonPrimary} onClick={comprar}>
+            COMPRAR AGORA
+          </button>
+
+          <button style={styles.buttonSecondary} onClick={checkout}>
+            VER OFERTA COMPLETA
+          </button>
+
+          <div style={styles.security}>
+            🔒 Compra segura via Mercado Livre
+          </div>
         </div>
-
-        <button style={styles.buttonPrimary} onClick={comprar}>
-          Comprar agora
-        </button>
-
-        <button style={styles.buttonSecondary} onClick={checkout}>
-          Finalizar compra
-        </button>
-
-        <p style={styles.footer}>
-          Produto disponível via Mercado Livre
-        </p>
       </div>
     </div>
   );
@@ -47,72 +76,121 @@ export default function Home() {
 const styles = {
   page: {
     minHeight: "100vh",
+    background:
+      "linear-gradient(180deg, #f5f7fa 0%, #e4e8ee 100%)",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    backgroundColor: "#eef0f4",
     padding: 20,
-    fontFamily: "Arial",
+    fontFamily: "Arial, sans-serif",
+  },
+
+  container: {
+    width: "100%",
+    maxWidth: 430,
   },
 
   card: {
-    backgroundColor: "#fff",
-    padding: 30,
-    borderRadius: 14,
-    maxWidth: 420,
-    width: "100%",
+    backgroundColor: "#ffffff",
+    borderRadius: 18,
+    padding: 24,
+    boxShadow: "0 10px 35px rgba(0,0,0,0.12)",
     textAlign: "center",
-    boxShadow: "0 10px 30px rgba(0,0,0,0.12)",
+  },
+
+  badge: {
+    backgroundColor: "#00a650",
+    color: "#fff",
+    padding: "6px 12px",
+    borderRadius: 20,
+    fontSize: 12,
+    fontWeight: "bold",
+    display: "inline-block",
+    marginBottom: 15,
+  },
+
+  image: {
+    width: "100%",
+    borderRadius: 14,
+    marginBottom: 20,
   },
 
   title: {
-    fontSize: 30,
+    fontSize: 28,
     marginBottom: 10,
-    fontWeight: "bold",
+    color: "#222",
+    lineHeight: 1.2,
   },
 
   subtitle: {
     fontSize: 16,
-    color: "#555",
+    color: "#666",
+    marginBottom: 20,
+    lineHeight: 1.5,
+  },
+
+  priceBox: {
+    backgroundColor: "#f7f7f7",
+    borderRadius: 12,
+    padding: 15,
     marginBottom: 20,
   },
 
-  box: {
+  oldPrice: {
+    textDecoration: "line-through",
+    color: "#999",
+    fontSize: 14,
+  },
+
+  price: {
+    fontSize: 36,
+    color: "#00a650",
+    margin: "8px 0",
+    fontWeight: "bold",
+  },
+
+  installments: {
+    fontSize: 14,
+    color: "#555",
+  },
+
+  benefits: {
     textAlign: "left",
-    backgroundColor: "#f7f7f7",
-    padding: 15,
-    borderRadius: 10,
-    marginBottom: 20,
-    lineHeight: 1.6,
+    backgroundColor: "#fafafa",
+    padding: 16,
+    borderRadius: 12,
+    marginBottom: 22,
+    lineHeight: 1.8,
+    color: "#333",
   },
 
   buttonPrimary: {
     width: "100%",
-    padding: 16,
-    fontSize: 18,
-    backgroundColor: "#ff6600",
+    backgroundColor: "#3483fa",
     color: "#fff",
     border: "none",
-    borderRadius: 10,
-    cursor: "pointer",
-    marginBottom: 10,
+    padding: 18,
+    fontSize: 18,
     fontWeight: "bold",
+    borderRadius: 12,
+    cursor: "pointer",
+    marginBottom: 12,
   },
 
   buttonSecondary: {
     width: "100%",
-    padding: 14,
-    fontSize: 16,
     backgroundColor: "#222",
     color: "#fff",
     border: "none",
-    borderRadius: 10,
+    padding: 16,
+    fontSize: 16,
+    borderRadius: 12,
     cursor: "pointer",
   },
 
-  footer: {
-    marginTop: 15,
-    fontSize: 12,
-    color: "#777",
+  security: {
+    marginTop: 18,
+    fontSize: 13,
+    color: "#666",
   },
 };
