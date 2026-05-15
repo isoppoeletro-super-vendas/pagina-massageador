@@ -3,95 +3,116 @@
 const LINK_AFILIADO = "https://meli.la/1Rn4azU";
 
 export default function Home() {
-  const handleCompra = () => {
+  const comprar = () => {
     if (window.fbq) fbq("track", "AddToCart");
     window.location.href = LINK_AFILIADO;
   };
 
-  const handleCheckout = () => {
+  const checkout = () => {
     if (window.fbq) fbq("track", "InitiateCheckout");
     window.location.href = LINK_AFILIADO;
   };
 
   return (
-    <div style={styles.container}>
-      <h1 style={styles.title}>Encosto Massageador</h1>
+    <div style={styles.page}>
+      <div style={styles.card}>
+        <h1 style={styles.title}>Encosto Massageador</h1>
 
-      <p style={styles.subtitle}>
-        Mais conforto e alívio para sua coluna no dia a dia
-      </p>
+        <p style={styles.subtitle}>
+          Mais conforto e alívio para sua coluna no dia a dia
+        </p>
 
-      <div style={styles.box}>
-        <p>✔ Reduz dores lombares</p>
-        <p>✔ Mais conforto ao dirigir</p>
-        <p>✔ Fácil instalação</p>
+        <div style={styles.box}>
+          <p>✔ Reduz dores lombares</p>
+          <p>✔ Mais conforto ao dirigir</p>
+          <p>✔ Fácil instalação</p>
+        </div>
+
+        <button style={styles.buttonPrimary} onClick={comprar}>
+          Comprar agora
+        </button>
+
+        <button style={styles.buttonSecondary} onClick={checkout}>
+          Finalizar compra
+        </button>
+
+        <p style={styles.footer}>
+          Produto disponível via Mercado Livre
+        </p>
       </div>
-
-      <button style={styles.buttonPrimary} onClick={handleCompra}>
-        Comprar agora
-      </button>
-
-      <button style={styles.buttonSecondary} onClick={handleCheckout}>
-        Finalizar compra
-      </button>
-
-      <p style={styles.footer}>
-        Produto disponível via Mercado Livre
-      </p>
     </div>
   );
 }
 
 const styles = {
-  container: {
-    padding: 30,
-    textAlign: "center",
+  page: {
+    minHeight: "100vh",
+    display: "flex",
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#eef0f4",
+    padding: 20,
     fontFamily: "Arial",
   },
+
+  card: {
+    backgroundColor: "#fff",
+    padding: 30,
+    borderRadius: 14,
+    maxWidth: 420,
+    width: "100%",
+    textAlign: "center",
+    boxShadow: "0 10px 30px rgba(0,0,0,0.12)",
+  },
+
   title: {
-    fontSize: 32,
+    fontSize: 30,
     marginBottom: 10,
+    fontWeight: "bold",
   },
+
   subtitle: {
-    fontSize: 18,
-    marginBottom: 20,
+    fontSize: 16,
     color: "#555",
+    marginBottom: 20,
   },
+
   box: {
-    margin: "20px auto",
-    padding: 20,
-    maxWidth: 320,
-    backgroundColor: "#f5f5f5",
-    borderRadius: 10,
     textAlign: "left",
-  },
-  buttonPrimary: {
+    backgroundColor: "#f7f7f7",
     padding: 15,
+    borderRadius: 10,
+    marginBottom: 20,
+    lineHeight: 1.6,
+  },
+
+  buttonPrimary: {
+    width: "100%",
+    padding: 16,
     fontSize: 18,
     backgroundColor: "#ff6600",
     color: "#fff",
     border: "none",
-    borderRadius: 8,
+    borderRadius: 10,
     cursor: "pointer",
-    marginTop: 20,
-    width: "100%",
-    maxWidth: 320,
+    marginBottom: 10,
+    fontWeight: "bold",
   },
+
   buttonSecondary: {
-    padding: 15,
+    width: "100%",
+    padding: 14,
     fontSize: 16,
     backgroundColor: "#222",
     color: "#fff",
     border: "none",
-    borderRadius: 8,
+    borderRadius: 10,
     cursor: "pointer",
-    marginTop: 10,
-    width: "100%",
-    maxWidth: 320,
   },
+
   footer: {
-    marginTop: 20,
+    marginTop: 15,
     fontSize: 12,
-    color: "#888",
+    color: "#777",
   },
 };
