@@ -25,11 +25,46 @@ export default function Home() {
         <div style={styles.card}>
           <span style={styles.badge}>MAIS VENDIDO</span>
 
-          <img
-            src="/imagens/produto.jpg"
-            alt="Encosto Massageador"
-            style={styles.image}
-          />
+          {/* GALERIA DE IMAGENS */}
+          <div style={styles.gallery}>
+            <img
+              src="/imagens/1.jpg"
+              alt="Encosto Massageador"
+              style={styles.mainImage}
+            />
+
+            <div style={styles.thumbnailGrid}>
+              <img
+                src="/imagens/2.jpg"
+                alt="Produto 2"
+                style={styles.thumb}
+              />
+
+              <img
+                src="/imagens/3.jpg"
+                alt="Produto 3"
+                style={styles.thumb}
+              />
+
+              <img
+                src="/imagens/4.jpg"
+                alt="Produto 4"
+                style={styles.thumb}
+              />
+
+              <img
+                src="/imagens/5.jpg"
+                alt="Produto 5"
+                style={styles.thumb}
+              />
+
+              <img
+                src="/imagens/6.jpg"
+                alt="Produto 6"
+                style={styles.thumb}
+              />
+            </div>
+          </div>
 
           <h1 style={styles.title}>
             Encosto Massageador para Carro
@@ -39,15 +74,15 @@ export default function Home() {
             Mais conforto para dirigir e alívio para costas e lombar
           </p>
 
-         <div style={styles.priceBox}>
-  <span style={styles.oldPrice}>De R$ 89,90</span>
+          <div style={styles.priceBox}>
+            <span style={styles.oldPrice}>De R$ 89,90</span>
 
-  <h2 style={styles.price}>R$ 64,90</h2>
+            <h2 style={styles.price}>R$ 64,90</h2>
 
-  <p style={styles.installments}>
-    Compra segura pelo Mercado Livre
-  </p>
-</div>
+            <p style={styles.installments}>
+              Compra segura pelo Mercado Livre
+            </p>
+          </div>
 
           <div style={styles.benefits}>
             <p>✔ Alívio imediato da lombar</p>
@@ -109,10 +144,26 @@ const styles = {
     marginBottom: 15,
   },
 
-  image: {
+  gallery: {
+    marginBottom: 20,
+  },
+
+  mainImage: {
     width: "100%",
     borderRadius: 14,
-    marginBottom: 20,
+    marginBottom: 10,
+    objectFit: "cover",
+  },
+
+  thumbnailGrid: {
+    display: "grid",
+    gridTemplateColumns: "1fr 1fr",
+    gap: 10,
+  },
+
+  thumb: {
+    width: "100%",
+    borderRadius: 10,
     objectFit: "cover",
   },
 
