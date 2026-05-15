@@ -1,6 +1,3 @@
-# app/page.js
-
-```javascript
 "use client";
 
 import { useState } from "react";
@@ -8,8 +5,6 @@ import { useState } from "react";
 const LINK_AFILIADO = "https://meli.la/1Rn4azU";
 
 export default function Home() {
-  const [imagemSelecionada, setImagemSelecionada] = useState("/imagens/1.jpg");
-
   const imagens = [
     "/imagens/1.jpg",
     "/imagens/2.jpg",
@@ -19,6 +14,8 @@ export default function Home() {
     "/imagens/6.jpg",
   ];
 
+  const [imagemSelecionada, setImagemSelecionada] = useState(imagens[0]);
+
   const comprar = () => {
     if (window.fbq) {
       fbq("track", "AddToCart");
@@ -27,86 +24,66 @@ export default function Home() {
     window.location.href = LINK_AFILIADO;
   };
 
-  const checkout = () => {
-    if (window.fbq) {
-      fbq("track", "InitiateCheckout");
-    }
-
-    window.location.href = LINK_AFILIADO;
-  };
-
   return (
     <div style={styles.page}>
-      <div style={styles.container}>
-        <div style={styles.card}>
-          <div style={styles.topBar}>
-            <span style={styles.badge}>MAIS VENDIDO</span>
-            <span style={styles.shipping}>🚚 Envio rápido</span>
-          </div>
+      <div style={styles.card}>
+        <span style={styles.badge}>MAIS VENDIDO</span>
 
-          <div style={styles.galleryContainer}>
+        <img
+          src={imagemSelecionada}
+          alt="Produto"
+          style={styles.mainImage}
+        />
+
+        <div style={styles.thumbnailGrid}>
+          {imagens.map((img, index) => (
             <img
-              src={imagemSelecionada}
-              alt="Encosto Massageador"
-              style={styles.mainImage}
+              key={index}
+              src={img}
+              alt="Produto"
+              style={{
+                ...styles.thumb,
+                border:
+                  imagemSelecionada === img
+                    ? "3px solid #3483fa"
+                    : "2px solid transparent",
+              }}
+              onClick={() => setImagemSelecionada(img)}
             />
+          ))}
+        </div>
 
-            <div style={styles.thumbnailGrid}>
-              {imagens.map((img, index) => (
-                <img
-                  key={index}
-                  src={img}
-                  alt="Produto"
-                  style={{
-                    ...styles.thumb,
-                    border:
-                      imagemSelecionada === img
-                        ? "3px solid #3483fa"
-                        : "2px solid transparent",
-                  }}
-                  onClick={() => setImagemSelecionada(img)}
-                />
-              ))}
-            </div>
-          </div>
+        <h1 style={styles.title}>
+          Encosto Massageador para Carro
+        </h1>
 
-          <h1 style={styles.title}>
-            Encosto Massageador para Carro
-          </h1>
+        <p style={styles.subtitle}>
+          Mais conforto para dirigir e alívio para costas e lombar.
+        </p>
 
-          <p style={styles.subtitle}>
-            Mais conforto para dirigir e alívio para costas e lombar no dia a dia.
+        <div style={styles.priceBox}>
+          <span style={styles.oldPrice}>De R$ 89,90</span>
+
+          <h2 style={styles.price}>R$ 64,90</h2>
+
+          <p style={styles.installments}>
+            Compra segura via Mercado Livre
           </p>
+        </div>
 
-          <div style={styles.priceBox}>
-            <span style={styles.oldPrice}>De R$ 89,90</span>
+        <div style={styles.benefits}>
+          <p>✔ Alívio imediato da lombar</p>
+          <p>✔ Mais conforto ao dirigir</p>
+          <p>✔ Fácil instalação</p>
+          <p>✔ Ideal para viagens longas</p>
+        </div>
 
-            <h2 style={styles.price}>R$ 64,90</h2>
+        <button style={styles.button} onClick={comprar}>
+          COMPRAR AGORA
+        </button>
 
-            <p style={styles.installments}>
-              Compra segura via Mercado Livre
-            </p>
-          </div>
-
-          <div style={styles.benefits}>
-            <p>✔ Alívio imediato da lombar</p>
-            <p>✔ Mais conforto no trânsito</p>
-            <p>✔ Fácil instalação</p>
-            <p>✔ Ideal para viagens longas</p>
-            <p>✔ Ajuste confortável no banco</p>
-          </div>
-
-          <button style={styles.buttonPrimary} onClick={comprar}>
-            COMPRAR AGORA
-          </button>
-
-          <button style={styles.buttonSecondary} onClick={checkout}>
-            VER OFERTA COMPLETA
-          </button>
-
-          <div style={styles.security}>
-            🔒 Compra segura via Mercado Livre
-          </div>
+        <div style={styles.security}>
+          🔒 Compra segura pelo Mercado Livre
         </div>
       </div>
     </div>
@@ -116,31 +93,21 @@ export default function Home() {
 const styles = {
   page: {
     minHeight: "100vh",
-    background: "linear-gradient(180deg, #f5f7fa 0%, #e4e8ee 100%)",
+    background: "#f5f5f5",
     display: "flex",
     justifyContent: "center",
     alignItems: "center",
-    padding: 16,
-    fontFamily: "Arial, sans-serif",
-  },
-
-  container: {
-    width: "100%",
-    maxWidth: 460,
+    padding: 20,
+    fontFamily: "Arial",
   },
 
   card: {
-    backgroundColor: "#ffffff",
+    backgroundColor: "#fff",
     borderRadius: 20,
-    padding: 22,
-    boxShadow: "0 10px 35px rgba(0,0,0,0.12)",
-  },
-
-  topBar: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    marginBottom: 16,
+    padding: 24,
+    maxWidth: 450,
+    width: "100%",
+    boxShadow: "0 10px 30px rgba(0,0,0,0.1)",
   },
 
   badge: {
@@ -150,61 +117,47 @@ const styles = {
     borderRadius: 20,
     fontSize: 12,
     fontWeight: "bold",
-  },
-
-  shipping: {
-    fontSize: 12,
-    color: "#555",
-    fontWeight: "bold",
-  },
-
-  galleryContainer: {
-    marginBottom: 20,
+    display: "inline-block",
+    marginBottom: 16,
   },
 
   mainImage: {
     width: "100%",
     borderRadius: 16,
     marginBottom: 12,
-    objectFit: "cover",
-    cursor: "zoom-in",
-    transition: "0.3s",
   },
 
   thumbnailGrid: {
     display: "grid",
     gridTemplateColumns: "repeat(3, 1fr)",
     gap: 10,
+    marginBottom: 20,
   },
 
   thumb: {
     width: "100%",
     borderRadius: 10,
     cursor: "pointer",
-    transition: "0.2s",
   },
 
   title: {
     fontSize: 28,
-    color: "#222",
-    lineHeight: 1.2,
-    fontWeight: "bold",
     marginBottom: 10,
-    textAlign: "center",
+    color: "#222",
+    fontWeight: "bold",
   },
 
   subtitle: {
     fontSize: 16,
     color: "#666",
-    lineHeight: 1.5,
     marginBottom: 20,
-    textAlign: "center",
+    lineHeight: 1.5,
   },
 
   priceBox: {
     backgroundColor: "#f7f7f7",
-    borderRadius: 14,
-    padding: 18,
+    padding: 16,
+    borderRadius: 12,
     marginBottom: 20,
     textAlign: "center",
   },
@@ -216,7 +169,7 @@ const styles = {
   },
 
   price: {
-    fontSize: 40,
+    fontSize: 38,
     color: "#00a650",
     margin: "10px 0",
     fontWeight: "bold",
@@ -230,42 +183,28 @@ const styles = {
   benefits: {
     backgroundColor: "#fafafa",
     padding: 16,
-    borderRadius: 14,
-    marginBottom: 24,
-    lineHeight: 1.9,
+    borderRadius: 12,
+    marginBottom: 20,
+    lineHeight: 1.8,
     color: "#333",
-    fontSize: 15,
   },
 
-  buttonPrimary: {
+  button: {
     width: "100%",
     backgroundColor: "#3483fa",
     color: "#fff",
     border: "none",
     padding: 18,
+    borderRadius: 12,
     fontSize: 18,
     fontWeight: "bold",
-    borderRadius: 14,
-    cursor: "pointer",
-    marginBottom: 12,
-  },
-
-  buttonSecondary: {
-    width: "100%",
-    backgroundColor: "#222",
-    color: "#fff",
-    border: "none",
-    padding: 16,
-    fontSize: 16,
-    borderRadius: 14,
     cursor: "pointer",
   },
 
   security: {
-    marginTop: 18,
+    marginTop: 16,
     fontSize: 13,
     color: "#666",
     textAlign: "center",
   },
 };
-```
