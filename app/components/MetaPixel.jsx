@@ -15,11 +15,11 @@ export default function MetaPixel() {
       });
       if (!f._fbq) f._fbq = n;
       n.push = n;
-      n.loaded = !0;
+      n.loaded = true;
       n.version = "2.0";
       n.queue = [];
       t = b.createElement(e);
-      t.async = !0;
+      t.async = true;
       t.src = v;
       s = b.getElementsByTagName(e)[0];
       s.parentNode.insertBefore(t, s);
