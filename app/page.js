@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const LINK_AFILIADO = "https://meli.la/1Rn4azU";
 
@@ -15,6 +15,19 @@ export default function Home() {
   ];
 
   const [imagemSelecionada, setImagemSelecionada] = useState(imagens[0]);
+  const [mobile, setMobile] = useState(false);
+
+  useEffect(() => {
+    const verificarTela = () => {
+      setMobile(window.innerWidth < 768);
+    };
+
+    verificarTela();
+
+    window.addEventListener("resize", verificarTela);
+
+    return () => window.removeEventListener("resize", verificarTela);
+  }, []);
 
   const comprar = () => {
     if (window.fbq) {
@@ -27,9 +40,19 @@ export default function Home() {
 
   return (
     <div style={styles.page}>
-      <div style={styles.container}>
+      <div
+        style={{
+          ...styles.container,
+          gridTemplateColumns: mobile ? "1fr" : "1fr 1fr",
+        }}
+      >
         <div style={styles.leftSide}>
-          <div style={styles.galleryCard}>
+          <div
+            style={{
+              ...styles.galleryCard,
+              position: mobile ? "relative" : "sticky",
+            }}
+          >
             <img
               src={imagemSelecionada}
               alt="Encosto Massageador"
@@ -57,25 +80,60 @@ export default function Home() {
         </div>
 
         <div style={styles.rightSide}>
-          <div style={styles.infoCard}>
+          <div
+            style={{
+              ...styles.infoCard,
+              padding: mobile ? 18 : 28,
+            }}
+          >
             <div style={styles.topRow}>
               <span style={styles.badge}>MAIS VENDIDO</span>
               <span style={styles.rating}>⭐ 4.9</span>
             </div>
 
-            <h1 style={styles.title}>
+            <h1
+              style={{
+                ...styles.title,
+                fontSize: mobile ? 32 : 48,
+              }}
+            >
               Encosto Massageador Premium para Carro
             </h1>
 
-            <p style={styles.subtitle}>
-              Mais conforto, postura e alívio para lombar e costas durante o dia.
+            <p
+              style={{
+                ...styles.subtitle,
+                fontSize: mobile ? 16 : 18,
+              }}
+            >
+              Mais conforto, postura e alívio para lombar e costas durante o
+              dia.
             </p>
 
-            <div style={styles.priceBox}>
+            <div
+              style={{
+                ...styles.priceBox,
+                padding: mobile ? 18 : 22,
+              }}
+            >
               <span style={styles.oldPrice}>De R$ 89,90</span>
 
-              <div style={styles.priceRow}>
-                <h2 style={styles.price}>R$ 64,90</h2>
+              <div
+                style={{
+                  ...styles.priceRow,
+                  flexDirection: mobile ? "column" : "row",
+                  alignItems: mobile ? "flex-start" : "center",
+                }}
+              >
+                <h2
+                  style={{
+                    ...styles.price,
+                    fontSize: mobile ? 42 : 58,
+                  }}
+                >
+                  R$ 64,90
+                </h2>
+
                 <span style={styles.discount}>-28%</span>
               </div>
 
@@ -85,11 +143,25 @@ export default function Home() {
             </div>
 
             <div style={styles.benefits}>
-              <div style={styles.benefitItem}>✔ Reduz dores lombares</div>
-              <div style={styles.benefitItem}>✔ Mais conforto ao dirigir</div>
-              <div style={styles.benefitItem}>✔ Fácil instalação</div>
-              <div style={styles.benefitItem}>✔ Ideal para viagens longas</div>
-              <div style={styles.benefitItem}>✔ Ajuste confortável no banco</div>
+              <div style={styles.benefitItem}>
+                ✔ Reduz dores lombares
+              </div>
+
+              <div style={styles.benefitItem}>
+                ✔ Mais conforto ao dirigir
+              </div>
+
+              <div style={styles.benefitItem}>
+                ✔ Fácil instalação
+              </div>
+
+              <div style={styles.benefitItem}>
+                ✔ Ideal para viagens longas
+              </div>
+
+              <div style={styles.benefitItem}>
+                ✔ Ajuste confortável no banco
+              </div>
             </div>
 
             <button style={styles.buttonPrimary} onClick={comprar}>
@@ -110,7 +182,8 @@ const styles = {
   page: {
     minHeight: "100vh",
     background: "linear-gradient(180deg, #f4f6f9 0%, #e8edf5 100%)",
-    padding: 20,
+    padding: 16,
+    overflowX: "hidden",
     fontFamily: "Arial, sans-serif",
   },
 
@@ -118,7 +191,6 @@ const styles = {
     maxWidth: 1180,
     margin: "0 auto",
     display: "grid",
-    gridTemplateColumns: "1fr 1fr",
     gap: 24,
     alignItems: "start",
   },
@@ -134,9 +206,8 @@ const styles = {
   galleryCard: {
     backgroundColor: "#fff",
     borderRadius: 24,
-    padding: 20,
+    padding: 16,
     boxShadow: "0 12px 35px rgba(0,0,0,0.08)",
-    position: "sticky",
     top: 20,
   },
 
@@ -163,7 +234,6 @@ const styles = {
   infoCard: {
     backgroundColor: "#fff",
     borderRadius: 24,
-    padding: 28,
     boxShadow: "0 12px 35px rgba(0,0,0,0.08)",
   },
 
@@ -172,6 +242,8 @@ const styles = {
     justifyContent: "space-between",
     alignItems: "center",
     marginBottom: 18,
+    gap: 10,
+    flexWrap: "wrap",
   },
 
   badge: {
@@ -189,7 +261,6 @@ const styles = {
   },
 
   title: {
-    fontSize: 40,
     lineHeight: 1.1,
     marginBottom: 16,
     color: "#111",
@@ -197,7 +268,6 @@ const styles = {
   },
 
   subtitle: {
-    fontSize: 18,
     color: "#666",
     lineHeight: 1.6,
     marginBottom: 24,
@@ -206,7 +276,6 @@ const styles = {
   priceBox: {
     backgroundColor: "#f8fafc",
     borderRadius: 18,
-    padding: 22,
     marginBottom: 24,
   },
 
@@ -218,16 +287,15 @@ const styles = {
 
   priceRow: {
     display: "flex",
-    alignItems: "center",
     gap: 14,
     margin: "10px 0",
   },
 
   price: {
-    fontSize: 52,
     color: "#00a650",
     margin: 0,
     fontWeight: "bold",
+    lineHeight: 1,
   },
 
   discount: {
@@ -236,6 +304,7 @@ const styles = {
     padding: "6px 10px",
     borderRadius: 10,
     fontWeight: "bold",
+    alignSelf: "flex-start",
   },
 
   installments: {
@@ -263,7 +332,7 @@ const styles = {
     background: "linear-gradient(135deg, #3483fa 0%, #2968c8 100%)",
     color: "#fff",
     border: "none",
-    padding: 20,
+    padding: 18,
     borderRadius: 18,
     fontSize: 20,
     fontWeight: "bold",
