@@ -1,5 +1,5 @@
 import "./globals.css";
-import MetaPixel from "../components/MetaPixel";
+import MetaPixel from "@/components/MetaPixel";
 
 export const metadata = {
   title: "Encosto Massageador",
