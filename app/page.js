@@ -392,14 +392,16 @@ const styles = {
   },
 
   socialProof: {
-    backgroundColor: "#f8fafc",
-    padding: 20,
-    borderRadius: 18,
-    marginBottom: 24,
-    lineHeight: 1.8,
-    color: "#333",
-    fontSize: 16,
-  hook: {
+  backgroundColor: "#f8fafc",
+  padding: 20,
+  borderRadius: 18,
+  marginBottom: 24,
+  lineHeight: 1.8,
+  color: "#333",
+  fontSize: 16,
+},
+
+hook: {
   backgroundColor: "#111",
   color: "#fff",
   padding: "10px 14px",
@@ -408,5 +410,5 @@ const styles = {
   marginBottom: 14,
   fontSize: 15,
   fontWeight: "bold",
-   },
-  };
+},
+};
