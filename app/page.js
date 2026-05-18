@@ -31,9 +31,9 @@ export default function Home() {
 
   const comprar = () => {
     if (window.fbq) {
-      fbq("track", "AddToCart");
-      fbq("track", "InitiateCheckout");
-    }
+  window.fbq("track", "AddToCart");
+  window.fbq("track", "InitiateCheckout");
+}
 
     window.location.href = LINK_AFILIADO;
   };
@@ -90,26 +90,14 @@ export default function Home() {
               <span style={styles.badge}>MAIS VENDIDO</span>
               <span style={styles.rating}>⭐ 4.9</span>
             </div>
+            
+                        <h1 style={styles.title}>
+  Transforme qualquer cadeira em uma sessão de massagem relaxante
+</h1>
 
-            <h1
-              style={{
-                ...styles.title,
-                fontSize: mobile ? 32 : 48,
-              }}
-            >
-              Encosto Massageador Premium para Carro
-            </h1>
-
-            <p
-              style={{
-                ...styles.subtitle,
-                fontSize: mobile ? 16 : 18,
-              }}
-            >
-              Mais conforto, postura e alívio para lombar e costas durante o
-              dia.
-            </p>
-
+<p style={styles.subtitle}>
+  Alívio para costas, lombar e pescoço em casa, no escritório ou no carro.
+</p>
             <div
               style={{
                 ...styles.priceBox,
@@ -163,9 +151,18 @@ export default function Home() {
                 ✔ Ajuste confortável no banco
               </div>
             </div>
-
+            <div style={styles.socialProof}>
+  ⭐ +5.000 clientes satisfeitos <br />
+  ⭐ Avaliação média 4.8/5 <br />
+  ⭐ “Chegou rápido e aliviou minha lombar.” <br />
+  ⭐ “Uso todos os dias no escritório.”
+</div>
+<div style={styles.urgencyBox}>
+  🔥 Oferta por tempo limitado <br />
+  ⚠️ Estoque promocional acabando
+</div>
             <button style={styles.buttonPrimary} onClick={comprar}>
-              COMPRAR AGORA
+              🔥 QUERO MEU MASSAGEADOR AGORA
             </button>
 
             <div style={styles.securityBox}>
@@ -187,13 +184,14 @@ const styles = {
     fontFamily: "Arial, sans-serif",
   },
 
-  container: {
-    maxWidth: 1180,
-    margin: "0 auto",
-    display: "grid",
-    gap: 24,
-    alignItems: "start",
-  },
+ container: {
+  maxWidth: 1180,
+  margin: "0 auto",
+  display: "grid",
+  gridTemplateColumns: "repeat(auto-fit, minmax(320px, 1fr))",
+  gap: 24,
+  alignItems: "start",
+},
 
   leftSide: {
     width: "100%",
@@ -261,12 +259,13 @@ const styles = {
   },
 
   title: {
-    lineHeight: 1.1,
-    marginBottom: 16,
-    color: "#111",
-    fontWeight: "bold",
-  },
-
+  fontSize: "clamp(32px, 6vw, 46px)",
+  lineHeight: 1.1,
+  marginBottom: 18,
+  color: "#111",
+  fontWeight: "900",
+  textAlign: "center",
+},
   subtitle: {
     color: "#666",
     lineHeight: 1.6,
@@ -328,17 +327,17 @@ const styles = {
   },
 
   buttonPrimary: {
-    width: "100%",
-    background: "linear-gradient(135deg, #3483fa 0%, #2968c8 100%)",
-    color: "#fff",
-    border: "none",
-    padding: 18,
-    borderRadius: 18,
-    fontSize: 20,
-    fontWeight: "bold",
-    cursor: "pointer",
-    boxShadow: "0 10px 20px rgba(52,131,250,0.25)",
-  },
+  width: "100%",
+  background: "linear-gradient(135deg, #00c853 0%, #00a650 100%)",
+  color: "#fff",
+  border: "none",
+  padding: 24,
+  borderRadius: 18,
+  fontSize: 24,
+  fontWeight: "bold",
+  cursor: "pointer",
+  boxShadow: "0 10px 20px rgba(52,131,250,0.25)",
+},
 
   securityBox: {
     marginTop: 18,
@@ -347,4 +346,25 @@ const styles = {
     color: "#666",
     lineHeight: 1.7,
   },
+  urgencyBox: {
+  backgroundColor: "#fff4e5",
+  border: "2px solid #ff9800",
+  color: "#e65100",
+  padding: 18,
+  borderRadius: 16,
+  fontWeight: "bold",
+  textAlign: "center",
+  marginBottom: 22,
+  lineHeight: 1.6,
+},
+
+socialProof: {
+  backgroundColor: "#f8fafc",
+  padding: 20,
+  borderRadius: 18,
+  marginBottom: 24,
+  lineHeight: 1.8,
+  color: "#333",
+  fontSize: 16,
+},
 };
