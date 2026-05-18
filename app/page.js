@@ -111,18 +111,17 @@ export default function Home() {
               }}
             >
               <div style={styles.topRow}>
-                <span style={styles.badge}>MAIS VENDIDO</span>
-                <span style={styles.rating}>⭐ 4.9</span>
-              </div>
+  <span style={styles.badge}>MAIS VENDIDO</span>
+  <span style={styles.rating}>⭐ 4.9</span>
+</div>
 
-              {/* FAIXA NOVA */}
-              <div style={styles.shippingBar}>
-                🚚 Frete rápido • 🔒 Compra segura • ⭐ Produto bem avaliado
-              </div>
+<div style={styles.hook}>
+  Dor nas costas ao longo do dia?
+</div>
 
-              <h1 style={styles.title}>
-                Transforme qualquer cadeira em uma sessão de massagem relaxante
-              </h1>
+<h1 style={styles.title}>
+  Transforme qualquer cadeira em uma sessão de massagem relaxante
+</h1>
 
               <p style={styles.subtitle}>
                 Alívio para costas, lombar e pescoço em casa, no escritório ou no carro.
@@ -400,5 +399,14 @@ const styles = {
     lineHeight: 1.8,
     color: "#333",
     fontSize: 16,
-  },
-};
+  hook: {
+  backgroundColor: "#111",
+  color: "#fff",
+  padding: "10px 14px",
+  borderRadius: 12,
+  textAlign: "center",
+  marginBottom: 14,
+  fontSize: 15,
+  fontWeight: "bold",
+   },
+  };
