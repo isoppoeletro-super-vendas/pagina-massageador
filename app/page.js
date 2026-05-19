@@ -120,7 +120,7 @@ export default function Home() {
 </div>
 
 <h1 style={styles.title}>
-  Quem dirige o dia inteiro também sente dor...
+  Mais conforto e relaxamento para quem passa horas no volante
 </h1>
 
 <p style={styles.subtitle}>
@@ -129,7 +129,8 @@ export default function Home() {
 </p>
 
 <div style={styles.emotionalBox}>
-  ❤️ Depois de tantas horas dirigindo, tudo o que eles precisam são alguns minutos de conforto e relaxamento.
+  🚗 Mais conforto enquanto dirige.
+  ❤️ Mais relaxamento depois de horas no volante.
 </div>
 
               <div
@@ -165,11 +166,11 @@ export default function Home() {
               </div>
 
               <div style={styles.benefits}>
-                <div style={styles.benefitItem}>❤️ Mais conforto depois de horas dirigindo</div>
-                <div style={styles.benefitItem}>✔ Ajuda no relaxamento muscular</div>
-                <div style={styles.benefitItem}>🚗 Ideal para motoristas e viagens longas</div>
-                <div style={styles.benefitItem}>✔ Alívio para costas, lombar e pescoço</div>
-                <div style={styles.benefitItem}>🎁 Um presente útil para quem você ama</div>
+                <div style={styles.benefitItem}>🚗 Mais conforto durante longos períodos dirigindo</div>
+<div style={styles.benefitItem}>✔ Ajuda no relaxamento muscular</div>
+<div style={styles.benefitItem}>✔ Reduz tensão em costas, lombar e pescoço</div>
+<div style={styles.benefitItem}>🛣️ Ideal para trânsito, viagens e rotina pesada</div>
+<div style={styles.benefitItem}>🎁 Um presente útil para quem passa horas no volante</div>
               </div>
 
               <div style={styles.socialProof}>
