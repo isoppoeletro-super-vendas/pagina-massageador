@@ -116,16 +116,21 @@ export default function Home() {
 </div>
 
 <div style={styles.hook}>
-  Dor nas costas ao longo do dia?
+  🚗 Tem alguém na sua família que passa o dia dirigindo?
 </div>
 
 <h1 style={styles.title}>
-  Transforme qualquer cadeira em uma sessão de massagem relaxante
+  Quem dirige o dia inteiro também sente dor...
 </h1>
 
-              <p style={styles.subtitle}>
-                Alívio para costas, lombar e pescoço em casa, no escritório ou no carro.
-              </p>
+<p style={styles.subtitle}>
+  Motoristas carregam muito mais do que passageiros.
+  Carregam responsabilidade, cansaço e dores silenciosas depois de longas horas no volante.
+</p>
+
+<div style={styles.emotionalBox}>
+  ❤️ Depois de tantas horas dirigindo, tudo o que eles precisam são alguns minutos de conforto e relaxamento.
+</div>
 
               <div
                 style={{
