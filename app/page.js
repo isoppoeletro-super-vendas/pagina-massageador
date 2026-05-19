@@ -165,18 +165,18 @@ export default function Home() {
               </div>
 
               <div style={styles.benefits}>
-                <div style={styles.benefitItem}>✔ Reduz dores lombares</div>
-                <div style={styles.benefitItem}>✔ Mais conforto ao dirigir</div>
-                <div style={styles.benefitItem}>✔ Fácil instalação</div>
-                <div style={styles.benefitItem}>✔ Ideal para viagens longas</div>
-                <div style={styles.benefitItem}>✔ Ajuste confortável no banco</div>
+                <div style={styles.benefitItem}>❤️ Mais conforto depois de horas dirigindo</div>
+                <div style={styles.benefitItem}>✔ Ajuda no relaxamento muscular</div>
+                <div style={styles.benefitItem}>🚗 Ideal para motoristas e viagens longas</div>
+                <div style={styles.benefitItem}>✔ Alívio para costas, lombar e pescoço</div>
+                <div style={styles.benefitItem}>🎁 Um presente útil para quem você ama</div>
               </div>
 
               <div style={styles.socialProof}>
-                ⭐ +5.000 clientes satisfeitos <br />
-                ⭐ Avaliação média 4.8/5 <br />
-                ⭐ “Chegou rápido e aliviou minha lombar.” <br />
-                ⭐ “Uso todos os dias no escritório.”
+               ⭐ +5.000 clientes satisfeitos <br />
+               ⭐ “Comprei para meu pai que dirige caminhão.” <br />
+               ⭐ “Ele usa todos os dias depois do trabalho.” <br />
+               ⭐ “Ajudou muito no conforto durante as viagens.”
               </div>
 
               <div style={styles.urgencyBox}>
@@ -415,5 +415,17 @@ hook: {
   marginBottom: 14,
   fontSize: 15,
   fontWeight: "bold",
+},
+  emotionalBox: {
+  background: "linear-gradient(135deg, #fff5f5 0%, #ffe9e9 100%)",
+  border: "2px solid #ffb3b3",
+  color: "#8a1c1c",
+  padding: 18,
+  borderRadius: 18,
+  marginBottom: 24,
+  lineHeight: 1.7,
+  fontSize: 16,
+  fontWeight: "600",
+  textAlign: "center",
 },
 };
