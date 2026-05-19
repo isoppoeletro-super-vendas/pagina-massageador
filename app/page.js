@@ -124,8 +124,8 @@ export default function Home() {
 </h1>
 
 <p style={styles.subtitle}>
-  Motoristas carregam muito mais do que passageiros.
-  Carregam responsabilidade, cansaço e dores silenciosas depois de longas horas no volante.
+ ❤️ Porque cuidar de quem você ama também é proporcionar conforto no dia a dia.
+
 </p>
 
 <div style={styles.emotionalBox}>
@@ -186,7 +186,7 @@ export default function Home() {
               </div>
 
               <button style={styles.buttonPrimary} onClick={comprar}>
-                🔥 QUERO MEU MASSAGEADOR AGORA
+                🎁 Aproveite a oferta especial de hoje.
               </button>
 
               <div style={styles.securityBox}>
