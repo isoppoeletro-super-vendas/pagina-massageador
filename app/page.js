@@ -176,7 +176,7 @@ export default function Home() {
               <div style={styles.socialProof}>
                ⭐ +5.000 clientes satisfeitos <br />
                ⭐ “Comprei para meu pai que dirige caminhão.” <br />
-               ⭐ “Ele usa todos os dias depois do trabalho.” <br />
+               ⭐ “Ele usa todos os dias depois no trabalho.” <br />
                ⭐ “Ajudou muito no conforto durante as viagens.”
               </div>
 
